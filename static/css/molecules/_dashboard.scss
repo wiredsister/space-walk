@@ -4,11 +4,11 @@
 	right: 0;
 	left: 0;
 	height: 50%;
-	background-color: fade-out($black, .5);
+	background-color: fade-out($dark-green, .5);
 	box-shadow: inset 0 5px 52px 15px fade-out($white, .7);
 	padding: 3em;
 
-	@extend %gradient-top-border;
+	// @extend %gradient-top-border;
 }
 
 .dashboard--sun {
@@ -28,3 +28,41 @@
 	width: 75%;
 	padding-left: 2em;
 }
+
+.dashboard--planet-slider {
+	cursor: -webkit-grab;
+	position: absolute;
+	top: -7px;
+	right: 0;
+	left: 0;
+}
+
+.dashboard--planet-slider [type="range"] {
+	width: 100%;
+	-webkit-appearance: none;
+	outline: none;
+	background-color: transparent;
+	color: inherit;
+	box-shadow: none;
+	border-radius: 0;
+	height: 10px;
+	cursor: -webkit-grab;
+
+	background: linear-gradient(to left, $pink, $yellow);
+	background: -o-linear-gradient(to left, $pink, $yellow);
+	background: -moz-linear-gradient(to left, $pink, $yellow);
+	background: -webkit-gradient(to left, $pink, $yellow);
+
+	&:focus {
+		cursor: -webkit-grabbing;
+	}
+}
+
+.dashboard--planet-slider [type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	@include background(url("../images/rocket.svg"));
+	cursor: -webkit-grab;
+	height: 7em;
+	width: 7em;
+}
+
