@@ -3,6 +3,8 @@ from html.parser import HTMLParser
 import json
 import requests
 
+DEBUG = True
+
 planets = ["mercury", "venus", "earth",
 		   "mars", "jupiter", "saturn",
 		   "uranus", "neptune"]
@@ -59,8 +61,12 @@ def create_all_planet_records():
 	All the planets scrapped data as a JSON string, currently missing
 	Venus, Jupiter, and Saturn
 	"""
-	payload = {"planets":[]}
-	for i in planets:
-		payload["planets"].append({i:create_planet_record(data_source, i)})
-	return json.dumps(payload)
+	if not DEBUG:
+		payload = {"planets":[]}
+		for i in planets:
+			payload["planets"].append({i:create_planet_record(data_source, i)})
+		json.dump(payload, open("planets.json", "w"))
+		return json.dumps(payload, indent=4)
+	else:
+		return json.dumps(json.loads(open("planets.json", "r").read()))
 
