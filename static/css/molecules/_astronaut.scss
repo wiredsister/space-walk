@@ -1,6 +1,6 @@
 #astronaut {
 	height: 10em;
-	width: auto;
+	width: 15em;
 	position: absolute;
 	top: 5em;
 	left: 0;
@@ -9,69 +9,60 @@
 	margin: auto;
 }
 
-.left {
+%left {
 	-webkit-animation-name:             left; 
-	-webkit-animation-duration:         5s; 
+	-webkit-animation-duration:         1s; 
 	-webkit-animation-iteration-count:  infinite;
-	-webkit-animation-timing-function: linear;
+	-webkit-animation-timing-function: ease-in-out;
 
 	animation-name:             left; 
-	animation-duration:         5s; 
+	animation-duration:         1s; 
 	animation-iteration-count:  infinite;
-	animation-timing-function: linear;
+	animation-timing-function: ease-in-out;
 }
 
 @keyframes left {
-	// from {
-	// 	transform: rotate(0);
-	// }
 	100% { 
-		transform: rotate(-50 90 160);
+		transform: translate(-50px) rotate(-12deg);
 	}	
 }
 
 @-webkit-keyframes left {
-	// from {
-	// 	-webkit-transform: rotate(0);
-	// }
 	100% { 
-		-webkit-transform: rotate(-50 90 160);
+		-webkit-transform: translate(-50px) rotate(-12deg);
 	}	
 }
 
-.right {
+%right {
 	-webkit-animation-name:             right; 
-	-webkit-animation-duration:         5s; 
+	-webkit-animation-duration:         1s; 
 	-webkit-animation-iteration-count:  infinite;
-	-webkit-animation-timing-function: linear;
+	-webkit-animation-timing-function: ease-in-out;
 
 	animation-name:             right; 
-	animation-duration:         5s; 
+	animation-duration:         1s; 
 	animation-iteration-count:  infinite;
-	animation-timing-function: linear;
+	animation-timing-function: ease-in-out;
 }
 
 @keyframes right {
-	// from {
-	// 	transform: rotate(0);
-	// }
+	0% {
+		transform: rotateZ(20deg) translateX(50px) translateY(-50px);
+	}
 	100% { 
-		transform: rotate(50 90 160);
+		transform: rotateZ(20deg) translateX(50px) translateY(-50px);
 	}	
 }
 
 @-webkit-keyframes right {
-	// from {
-	// 	-webkit-transform: rotate(0);
-	// }
 	100% {
-		-webkit-transform: rotate(50 90 160);
+		-webkit-transform: rotateZ(20deg) translateX(50px) translateY(-50px);
 	}	
 }
 .-left-leg {
-	@extend .left;
+	@extend %left;
 }
 
 .-right-leg {
-	@extend .right;
+	@extend %right;
 }
