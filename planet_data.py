@@ -21,14 +21,30 @@ def create_planet_record(planet_url, planet):
 	p = Planet_Parser()
 	p.feed(raw_html.decode('utf-8'))
 	sans_ws = [i for i in p.my_data.split('\n') if not i.isspace()]
-	just_data = "\n".join(sans_ws).split("Data Source Descriptions")[0].split('\n')[2:]
+	just_data = "\n".join(sans_ws).split("Data Source Descriptions")[0].split('\n')
+	just_data = just_data[2:len(just_data) - 1]
 	spot = 0
 	total = len(just_data)
 	planet_record = {}
 
 	while spot != total:
+		jumps = 0
+		idents = 1
 		if ((len(just_data[spot]) - len(just_data[spot].lstrip()) == 4)):
-			print("key: " + just_data[spot])
+			# parent
+			this_key = just_data[spot].split(':')[0].strip()
+			planet_record[this_key] = {}
+			while True:
+				if spot + idents == total:
+					break
+				if (((len(just_data[spot + idents])) -
+					 len(just_data[spot + idents].lstrip()) == 8)):
+					child = [j.strip() for j in just_data[spot + idents].split(":")]
+					print(child)
+					# planet_record[this_key][]
+					idents += 1
+				else:
+					break
 		spot += 1
-			# while (len(i) - len(i.lstrip() == 8)):
-	return planet_record
+	return just_data, planet_record
+# create_planet_record(data_source, "mars")
