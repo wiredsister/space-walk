@@ -47,6 +47,7 @@
 	border-radius: 0;
 	height: 10px;
 	cursor: -webkit-grab;
+	box-shadow: 0 5px 4px 2px rgba(14, 50, 22, 0.73);
 
 	background: linear-gradient(to left, $pink, $yellow);
 	background: -o-linear-gradient(to left, $pink, $yellow);
@@ -64,5 +65,9 @@
 	cursor: -webkit-grab;
 	height: 7em;
 	width: 7em;
+}
+
+.dashboard--audio {
+  float: right;
 }
 

@@ -424,7 +424,6 @@ header {
   display: none; }
 
 .planet {
-  position: relative;
   height: 50em; }
 
 [class$="--mercury"] {
@@ -527,6 +526,7 @@ header {
   border-radius: 0;
   height: 10px;
   cursor: -webkit-grab;
+  box-shadow: 0 5px 4px 2px rgba(14, 50, 22, 0.73);
   background: linear-gradient(to left, #ed4f75, #ffff00);
   background: -o-linear-gradient(to left, #ed4f75, #ffff00);
   background: -moz-linear-gradient(to left, #ed4f75, #ffff00);
@@ -544,11 +544,14 @@ header {
   height: 7em;
   width: 7em; }
 
+.dashboard--audio {
+  float: right; }
+
 #astronaut {
-  height: 10em;
+  height: 13em;
   width: 15em;
   position: absolute;
-  top: 5em;
+  top: 3em;
   left: 0;
   right: 0;
   z-index: 999;
@@ -628,5 +631,7 @@ header {
     -webkit-transform: translateY(10px); }
   100% {
     -webkit-transform: translateY(0); } }
+#pie_chart {
+  position: absolute; }
 
 /*# sourceMappingURL=main.css.map */
