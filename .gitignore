@@ -2,3 +2,4 @@ _site
 .sass-cache
 .htaccess
 .DS_store
+__pycache__/*

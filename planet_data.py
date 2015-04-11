@@ -25,7 +25,7 @@ def create_planet_record(planet_url, planet):
 	p.feed(raw_html.decode('utf-8'))
 	# Something feels redundant here
 	sans_ws = [i for i in p.my_data.split('\n') if not i.isspace()]
-	# Venus, Jupiter, Saturn aren't working because of indendation issues. 
+	# Venus, Jupiter, Saturn aren't working because of indendation issues.
 	just_data = "\n".join(sans_ws).split("Data Source Descriptions")[0].split('\n')
 	just_data = just_data[2:len(just_data) - 1]
 	d = just_data
