@@ -1,4 +1,4 @@
 {
   "libs":["browser"],	
-  "loadEagerly":["d3.js"]
+  "loadEagerly":["d3.js", "jquery.js", "backbone.js", "underscore.js"]
 }
