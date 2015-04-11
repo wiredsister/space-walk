@@ -1,14 +1,5 @@
 "use strict";
-var planets_data;
 
-// $.get("planetsdata", function (data) {
-//     planets_data = data;
-// });
-
-
-// var add_pie_chart = function 
-
-// Need to do some kind of transition in since the request takes some time...
 // d3.json("planetsdata", function (data) {
 //     var these_planets = data.planets;
 //     d3.select("#pie_chart")
@@ -18,4 +9,17 @@ var planets_data;
 //     console.log("finished");
 // });
 
-
+var painter = (function () {
+    var p_data = function () {
+	// Yes its sync, yes I know.
+	var o = new XMLHttpRequest();
+	o.open("GET", "planetsdata", false);
+	o.send();
+	return o.responseText;
+    };
+    var pie_chart = function (planet_name) {
+	console.log(p_data.responseText);
+    };
+    console.log(p_data());
+    return {add_pie_chart:pie_chart};
+})();
