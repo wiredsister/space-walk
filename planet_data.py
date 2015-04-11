@@ -17,9 +17,12 @@ class Planet_Parser(HTMLParser):
 
 def create_planet_record(planet_url, planet):
 	"""Disgusting"""
+	if planet.lower() not in planets:
+		raise ValueError("Must be a valid planets, choices:" + " ".join(planets))
 	raw_html = requests.get(planet_url.format(this_planet=planet)).content
 	p = Planet_Parser()
 	p.feed(raw_html.decode('utf-8'))
+	# Something feels redundant here
 	sans_ws = [i for i in p.my_data.split('\n') if not i.isspace()]
 	just_data = "\n".join(sans_ws).split("Data Source Descriptions")[0].split('\n')
 	just_data = just_data[2:len(just_data) - 1]
@@ -33,18 +36,20 @@ def create_planet_record(planet_url, planet):
 		if ((len(just_data[spot]) - len(just_data[spot].lstrip()) == 4)):
 			# parent
 			this_key = just_data[spot].split(':')[0].strip()
-			planet_record[this_key] = {}
+			this_value = just_data[spot].split(':')[1].strip()
+			planet_record[this_key] = {this_key:this_value}
 			while True:
 				if spot + idents == total:
 					break
 				if (((len(just_data[spot + idents])) -
 					 len(just_data[spot + idents].lstrip()) == 8)):
 					child = [j.strip() for j in just_data[spot + idents].split(":")]
-					print(child)
-					# planet_record[this_key][]
+					planet_record[this_key].update([(child[0], child[1])])
+					# print(this_key, child)
+					print(this_key)
 					idents += 1
 				else:
 					break
 		spot += 1
-	return just_data, planet_record
+	return planet_record
 # create_planet_record(data_source, "mars")
