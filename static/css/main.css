@@ -356,7 +356,7 @@ td,
 th {
   padding: 0; }
 
-.background, [class^="planet--"] {
+.background, [class^="planet--"], .dashboard--pluto {
   box-shadow: inset 0 0 20px 16px black; }
 
 .dashboard--sun {
@@ -424,7 +424,6 @@ header {
   display: none; }
 
 .planet {
-  position: relative;
   height: 50em; }
 
 [class$="--mercury"] {
@@ -505,6 +504,18 @@ header {
   -webkit-background-size: contain;
   -moz-background-size: contain; }
 
+.dashboard--pluto {
+  height: 6em;
+  width: 6em;
+  border-radius: 50%;
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  background: url("../images/pluto.gif") center center no-repeat;
+  background-size: contain;
+  -webkit-background-size: contain;
+  -moz-background-size: contain; }
+
 .dashboard--planet-summary {
   float: left;
   width: 75%;
@@ -527,6 +538,7 @@ header {
   border-radius: 0;
   height: 10px;
   cursor: -webkit-grab;
+  box-shadow: 0 5px 4px 2px rgba(14, 50, 22, 0.73);
   background: linear-gradient(to left, #ed4f75, #ffff00);
   background: -o-linear-gradient(to left, #ed4f75, #ffff00);
   background: -moz-linear-gradient(to left, #ed4f75, #ffff00);
@@ -544,11 +556,14 @@ header {
   height: 7em;
   width: 7em; }
 
+.dashboard--audio {
+  float: right; }
+
 #astronaut {
-  height: 10em;
+  height: 13em;
   width: 15em;
   position: absolute;
-  top: 5em;
+  top: 3em;
   left: 0;
   right: 0;
   z-index: 999;
@@ -628,5 +643,7 @@ header {
     -webkit-transform: translateY(10px); }
   100% {
     -webkit-transform: translateY(0); } }
+#pie_chart {
+  position: absolute; }
 
 /*# sourceMappingURL=main.css.map */
