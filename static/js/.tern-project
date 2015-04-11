@@ -1,0 +1,4 @@
+{
+  "libs":["browser"],	
+  "loadEagerly":["d3.js"]
+}
