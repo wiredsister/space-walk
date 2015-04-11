@@ -11,30 +11,80 @@
 
 %left {
 	-webkit-animation-name:             left; 
-	-webkit-animation-duration:         1s; 
+	-webkit-animation-duration:         2s; 
 	-webkit-animation-iteration-count:  infinite;
 	-webkit-animation-timing-function: ease-in-out;
 
 	animation-name:             left; 
-	animation-duration:         1s; 
+	animation-duration:         2s; 
 	animation-iteration-count:  infinite;
 	animation-timing-function: ease-in-out;
+	transform-origin: top;
 }
 
 @keyframes left {
-	100% { 
-		transform: translate(-50px) rotate(-12deg);
+	0% {
+		transform: rotate(0turn);
+	}
+	50% {
+		transform: rotate(0.12turn);
 	}	
+	100% {
+	    transform: rotate(0turn);
+	}
 }
 
 @-webkit-keyframes left {
-	100% { 
-		-webkit-transform: translate(-50px) rotate(-12deg);
+	0% {
+		-webkit-transform: rotate(0turn);
+	}
+	50% {
+		-webkit-transform: rotate(0.12turn);
 	}	
+	100% {
+	    -webkit-transform: rotate(0turn);
+	}
 }
 
 %right {
 	-webkit-animation-name:             right; 
+	-webkit-animation-duration:         2s; 
+	-webkit-animation-iteration-count:  infinite;
+	-webkit-animation-timing-function: ease-in-out;
+
+	animation-name:             right; 
+	animation-duration:         2s; 
+	animation-iteration-count:  infinite;
+	animation-timing-function: ease-in-out;
+	transform-origin: top;
+}
+
+@keyframes right {
+	0% {
+		transform: rotate(0turn);
+	}
+	50% {
+		transform: rotate(-0.12turn);
+	}	
+	100% {
+	    transform: rotate(0turn);
+	}
+}
+
+@-webkit-keyframes right {
+	0% {
+		-webkit-transform: rotate(0turn);
+	}
+	50% {
+		-webkit-transform: rotate(-0.12turn);
+	}	
+	100% {
+	    -webkit-transform: rotate(0turn);
+	}
+}
+
+%map-motion {
+	-webkit-animation-name:             map-motion; 
 	-webkit-animation-duration:         1s; 
 	-webkit-animation-iteration-count:  infinite;
 	-webkit-animation-timing-function: ease-in-out;
@@ -45,24 +95,38 @@
 	animation-timing-function: ease-in-out;
 }
 
-@keyframes right {
+@keyframes map-motion {
 	0% {
-		transform: rotateZ(20deg) translateX(50px) translateY(-50px);
+		transform: translateY(0);
 	}
-	100% { 
-		transform: rotateZ(20deg) translateX(50px) translateY(-50px);
+	50% {
+		transform: translateY(10px)
 	}	
+	100% {
+	    transform:  translateY(0);
+	}
 }
 
-@-webkit-keyframes right {
-	100% {
-		-webkit-transform: rotateZ(20deg) translateX(50px) translateY(-50px);
+@-webkit-keyframes map-motion {
+	0% {
+		-webkit-transform: translateY(0);
+	}
+	50% {
+		-webkit-transform: translateY(10px);
 	}	
+	100% {
+	    -webkit-transform: translateY(0);
+	}
 }
+
 .-left-leg {
 	@extend %left;
 }
 
 .-right-leg {
 	@extend %right;
+}
+
+.-arm, .-map, .-torso {
+	@extend %map-motion;
 }
