@@ -23,6 +23,18 @@
 	@include background(#{map-get($planet, sun)});
 }
 
+.dashboard--pluto {
+	height: 6em;
+	width: 6em;
+	border-radius: 50%;
+	position: absolute;
+	right: -40px;
+	top: -40px;
+
+	@extend %planetary-shadow;
+	@include background(#{map-get($planet, pluto)});
+}
+
 .dashboard--planet-summary {
 	float: left;
 	width: 75%;
