@@ -7,7 +7,6 @@
 }
 
 body {
-	background: repeat repeat #{map-get($images, bg)};
 	overflow: hidden;
 }
 
@@ -15,4 +14,15 @@ header {
 	position: absolute;
 	padding: 2em;
 	text-align: left;
+}
+
+.background {
+	background: repeat repeat #{map-get($images, bg)};
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	-webkit-filter: blur(1px);
+	@extend %planetary-shadow;
 }
