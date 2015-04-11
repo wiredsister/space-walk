@@ -1,0 +1,30 @@
+.dashboard {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	height: 50%;
+	background-color: fade-out($black, .5);
+	box-shadow: inset 0 5px 52px 15px fade-out($white, .7);
+	padding: 3em;
+
+	@extend %gradient-top-border;
+}
+
+.dashboard--sun {
+	height: 8em;
+	width: 8em;
+	border-radius: 50%;
+	position: absolute;
+	left: -60px;
+	top: -60px;
+
+	@extend %sun-brilliance;
+	@include background(#{map-get($planet, sun)});
+}
+
+.dashboard--planet-summary {
+	float: left;
+	width: 75%;
+	padding-left: 2em;
+}

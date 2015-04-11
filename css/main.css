@@ -356,4 +356,206 @@ td,
 th {
   padding: 0; }
 
+[class^="planet--"] {
+  box-shadow: inset 0 0 20px 16px black; }
+
+.dashboard--sun {
+  box-shadow: inset 0 0 20px 16px rgba(255, 255, 0, 0.6); }
+
+.dashboard::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(to left, #ed4f75, #ffff00);
+  background: -o-linear-gradient(to left, #ed4f75, #ffff00);
+  background: -moz-linear-gradient(to left, #ed4f75, #ffff00);
+  background: -webkit-gradient(to left, #ed4f75, #ffff00);
+  top: 0;
+  left: 0;
+  right: 0; }
+
+[class^="planet--"] {
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 100s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-name: rotate;
+  animation-duration: 100s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; }
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg); } }
+@font-face {
+  src: url("../fonts/Hermit-light.otf");
+  font-family: "Hermit";
+  font-weight: light; }
+* {
+  box-sizing: border-box;
+  zoom: 1;
+  font-family: "Hermit";
+  color: white;
+  text-shadow: 2px 2px 1px #ed4f75; }
+
+body {
+  background: repeat repeat url("../images/space-background.jpg");
+  overflow: hidden; }
+
+header {
+  position: absolute;
+  padding: 2em;
+  text-align: left; }
+
+[class^="planet--"] {
+  margin: 0 auto;
+  border-radius: 50%;
+  height: 30em;
+  width: 30em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  display: none; }
+
+.planet {
+  position: relative;
+  height: 50em; }
+
+[class$="--mercury"] {
+  background: url("../images/mercury.gif") center center no-repeat;
+  background-size: contain;
+  -webkit-background-size: contain;
+  -moz-background-size: contain; }
+  .-mercury [class$="--mercury"] {
+    display: block; }
+
+[class$="--venus"] {
+  background: url("../images/venus.gif") center center no-repeat;
+  background-size: contain;
+  -webkit-background-size: contain;
+  -moz-background-size: contain; }
+  .-venus [class$="--venus"] {
+    display: block; }
+
+[class$="--earth"] {
+  background: url("../images/earth.gif") center center no-repeat;
+  background-size: contain;
+  -webkit-background-size: contain;
+  -moz-background-size: contain; }
+  .-earth [class$="--earth"] {
+    display: block; }
+
+[class$="--mars"] {
+  background: url("../images/mars.gif") center center no-repeat;
+  background-size: contain;
+  -webkit-background-size: contain;
+  -moz-background-size: contain; }
+  .-mars [class$="--mars"] {
+    display: block; }
+
+[class$="--saturn"] {
+  background: url("../images/saturn.gif") center center no-repeat;
+  background-size: contain;
+  -webkit-background-size: contain;
+  -moz-background-size: contain; }
+  .-saturn [class$="--saturn"] {
+    display: block; }
+
+[class$="--uranus"] {
+  background: url("../images/uranus.gif") center center no-repeat;
+  background-size: contain;
+  -webkit-background-size: contain;
+  -moz-background-size: contain; }
+  .-uranus [class$="--uranus"] {
+    display: block; }
+
+[class$="--neptune"] {
+  background: url("../images/neptune.gif") center center no-repeat;
+  background-size: contain;
+  -webkit-background-size: contain;
+  -moz-background-size: contain; }
+  .-neptune [class$="--neptune"] {
+    display: block; }
+
+.dashboard {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 5px 52px 15px rgba(255, 255, 255, 0.3);
+  padding: 3em; }
+
+.dashboard--sun {
+  height: 8em;
+  width: 8em;
+  border-radius: 50%;
+  position: absolute;
+  left: -60px;
+  top: -60px;
+  background: url("../images/sun.gif") center center no-repeat;
+  background-size: contain;
+  -webkit-background-size: contain;
+  -moz-background-size: contain; }
+
+.dashboard--planet-summary {
+  float: left;
+  width: 75%;
+  padding-left: 2em; }
+
+#astronaut {
+  height: 10em;
+  width: auto;
+  position: absolute;
+  top: 5em;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  margin: auto; }
+
+.left, .-left-leg {
+  -webkit-animation-name: left;
+  -webkit-animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-name: left;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; }
+
+@keyframes left {
+  100% {
+    transform: rotate(-50 90 160); } }
+@-webkit-keyframes left {
+  100% {
+    -webkit-transform: rotate(-50 90 160); } }
+.right, .-right-leg {
+  -webkit-animation-name: right;
+  -webkit-animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-name: right;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; }
+
+@keyframes right {
+  100% {
+    transform: rotate(50 90 160); } }
+@-webkit-keyframes right {
+  100% {
+    -webkit-transform: rotate(50 90 160); } }
+
 /*# sourceMappingURL=main.css.map */

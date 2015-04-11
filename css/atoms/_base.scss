@@ -1,0 +1,18 @@
+* {
+	box-sizing: border-box;
+	zoom: 1;
+	font-family: "Hermit";
+	color: $white;
+	@include import-text($pink);
+}
+
+body {
+	background: repeat repeat #{map-get($images, bg)};
+	overflow: hidden;
+}
+
+header {
+	position: absolute;
+	padding: 2em;
+	text-align: left;
+}

@@ -1,0 +1,63 @@
+@mixin background ($src) {
+	background: $src center center no-repeat;
+	background-size: contain;
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+}
+
+%planetary-shadow {
+	box-shadow: inset 0 0 20px 16px $black;
+}
+
+%sun-brilliance {
+	box-shadow: inset 0 0 20px 16px fade-out($yellow, .4);
+}
+
+%gradient-top-border {
+    &::before {
+    	content: "";
+    	position: absolute;
+    	width: 100%;
+    	height: 8px;
+    	background: linear-gradient(to left, $pink, $yellow);
+    	background: -o-linear-gradient(to left, $pink, $yellow);
+    	background: -moz-linear-gradient(to left, $pink, $yellow);
+    	background: -webkit-gradient(to left, $pink, $yellow);
+    	top: 0;
+    	left: 0;
+    	right: 0;
+    }
+}
+
+// ANIMATIONS
+
+%rotate {
+	-webkit-animation-name:             rotate; 
+	-webkit-animation-duration:         100s; 
+	-webkit-animation-iteration-count:  infinite;
+	-webkit-animation-timing-function: linear;
+
+	animation-name:             rotate; 
+	animation-duration:         100s; 
+	animation-iteration-count:  infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to { 
+		transform: rotate(360deg);
+	}	
+}
+
+@-webkit-keyframes rotate {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to { 
+		-webkit-transform: rotate(360deg);
+	}	
+}
+

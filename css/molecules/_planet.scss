@@ -1,0 +1,71 @@
+$planet: (
+	mercury: url("../images/mercury.gif"),
+	venus: url("../images/venus.gif"),
+	earth: url("../images/earth.gif"),
+	mars: url("../images/mars.gif"),
+	saturn: url("../images/saturn.gif"),
+	uranus: url("../images/uranus.gif"),
+	neptune: url("../images/neptune.gif"),
+	sun: url("../images/sun.gif")
+);
+
+%planet {
+	margin: 0 auto;
+	border-radius: 50%;
+	height: 30em;
+	width: 30em;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	@extend	%planetary-shadow;
+	@extend %rotate;
+	display: none;
+}
+
+.planet {
+	position: relative;
+	height: 50em;
+}
+
+[class^="planet--"] {
+	@extend %planet;
+}
+
+[class$="--mercury"] {
+	@include background(#{map-get($planet, mercury)});
+	.-mercury & { display: block; }
+}
+
+[class$="--venus"] {
+	@include background(#{map-get($planet, venus)});
+	.-venus & { display: block; }
+}	
+
+[class$="--earth"] {
+	@include background(#{map-get($planet, earth)});
+	.-earth & { display: block; }
+}	
+
+[class$="--mars"] {
+	@include background(#{map-get($planet, mars)});
+	.-mars & { display: block; }
+}
+
+[class$="--saturn"] {
+	@include background(#{map-get($planet, saturn)});
+	.-saturn & { display: block; }	
+}
+
+[class$="--uranus"] {
+	@include background(#{map-get($planet, uranus)});
+	.-uranus & { display: block; }	
+}	
+
+[class$="--neptune"] {
+	@include background(#{map-get($planet, neptune)});
+	.-neptune & { display: block; }
+}	
+

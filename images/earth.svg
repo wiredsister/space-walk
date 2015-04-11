@@ -1,4 +1,4 @@
-<svg version="1.1" id="earth" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg version="1.1" id="earth" class="planet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1229.9 1229.9" enable-background="new 0 0 1229.9 1229.9" xml:space="preserve">
 <g>
 	<g>
@@ -10,7 +10,7 @@
 		</clipPath>
 		<g clip-path="url(#earth2)">
 			
-				<image overflow="visible" width="540" height="615" id="OYzVeS_8_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAh0AAAJoCAYAAADCj1OVAAAACXBIWXMAAATrAAAE6wHYKlsNAAAA
+<image overflow="visible" width="540" height="615" id="OYzVeS_8_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAh0AAAJoCAYAAADCj1OVAAAACXBIWXMAAATrAAAE6wHYKlsNAAAA
 GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAFGFZJREFUeNqUvWuCJDeuNQYws6WZ
 ay/CS/FO7G34p395W16VfaWuIJx8ADgHZGo+S1NTre6uqswIBgkcnIf+n//X//G/q7b/pbUmrb1E
 9fMxPksTExEzk94/H9Y/n7uI9s+f2+dD5fNXpb0/f/PzWT6/N/6u9fExvnB9rT2fr/v5mV9rnw/V
