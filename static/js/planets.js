@@ -13,6 +13,7 @@ $(function () {
 			// d3 logic
 		}
 	});
+
 	var SolarSystem = Backbone.Collection.extend({
 		model: Planet,
 
@@ -21,8 +22,10 @@ $(function () {
 
 		parse: function (response) {
 			_.each(response.planets, function(value, key, list) { 
-			    _.extend(response.planets[key],
-				     { name: _.keys(value).toString() });
+				_.extend(response.planets[key], { 
+					name: _.keys(value).toString(),
+					planetClass: '-' + _.keys(value).toString()
+				});
 			});
 
 			return response.planets;
@@ -32,9 +35,10 @@ $(function () {
 			return _.extend(this, { currentPlanet: planetNumber });
 		}
 	});
+
 	var SolarView = Backbone.View.extend({
 		events: {
-			'oninput .planet-slider': 'travel'
+			'change #planetSlider': 'planetSlider'
 		},
 
 		el: '._planetApp_', 
@@ -43,16 +47,25 @@ $(function () {
 			this.collection.fetch({ remove: false });
 
 			this.infoTemplate = _.template(this.$('#planetInfo').html());
-			this.listenTo(this.collection, 'sync', this.render);
+			this.listenToOnce(this.collection, 'sync', this.render);
 		}, 
 
 		render: function () {
+			this.listenTo(this.collection, 'change', this.render);
 			this.travel();
+
 			return this;
 		}, 
 
+		planetSlider: function (event) {
+			var nextPlanet = event.currentTarget.valueAsNumber - 1;
+			_.extend(this.collection, { currentPlanet: nextPlanet });
+
+			this.travel();
+		},
+
 		travel: function () {
-			console.log('sup');
+			this.backdrop();
 
 		    var planetData = this.collection.at(
 			this.collection.currentPlanet).toJSON();
@@ -61,6 +74,15 @@ $(function () {
 			var compiled = this.infoTemplate({ planet: planetData });
 
 			$summary.append(compiled);
+		}, 
+
+		backdrop: function () {
+			this.$('.planet').removeClass(function (index, css) {
+				return css[1];
+			});
+
+			var newPlanet = this.collection.at(this.collection.currentPlanet).get('planetClass');
+			this.$('.planet').addClass(newPlanet);
 		}
 
 	});

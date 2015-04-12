@@ -5,6 +5,7 @@ $planet: (
 	mars: url("../images/mars.gif"),
 	saturn: url("../images/saturn.gif"),
 	uranus: url("../images/uranus.gif"),
+	jupiter: url("../images/jupiter.gif"),
 	neptune: url("../images/neptune.gif"),
 	sun: url("../images/sun.gif"),
 	pluto: url("../images/pluto.gif")
@@ -57,6 +58,11 @@ $planet: (
 [class$="--saturn"] {
 	@include background(#{map-get($planet, saturn)});
 	.-saturn & { display: block; }	
+}
+
+[class$="--jupiter"] {
+	@include background(#{map-get($planet, jupiter)});
+	.-jupiter & { display: block; }	
 }
 
 [class$="--uranus"] {

@@ -466,6 +466,14 @@ header {
   .-saturn [class$="--saturn"] {
     display: block; }
 
+[class$="--jupiter"] {
+  background: url("../images/jupiter.gif") center center no-repeat;
+  background-size: contain;
+  -webkit-background-size: contain;
+  -moz-background-size: contain; }
+  .-jupiter [class$="--jupiter"] {
+    display: block; }
+
 [class$="--uranus"] {
   background: url("../images/uranus.gif") center center no-repeat;
   background-size: contain;
