@@ -444,8 +444,10 @@ body {
 
 header {
   position: absolute;
-  padding: 2em;
-  text-align: left; }
+  padding: 3em;
+  text-align: right;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5); }
 
 .background {
   background: repeat repeat url("../images/space-background.jpg");
@@ -459,6 +461,13 @@ header {
 small {
   display: block;
   width: 15em; }
+
+._solarDays_ {
+  height: 30%;
+  position: absolute;
+  width: 30%;
+  fill: white;
+  font-size: 80%; }
 
 [class^="planet--"] {
   margin: 0 auto;
@@ -618,7 +627,7 @@ small {
 .dashboard--audio {
   position: absolute;
   top: .5em;
-  left: .5em; }
+  right: .5em; }
 
 .dashboard--planet-name {
   text-transform: capitalize; }

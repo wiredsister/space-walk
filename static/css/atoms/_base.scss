@@ -12,8 +12,10 @@ body {
 
 header {
 	position: absolute;
-	padding: 2em;
-	text-align: left;
+	padding: 3em;
+	text-align: right;
+	right: 0;
+	background-color: fade-out($black, .5);
 }
 
 .background {
@@ -30,4 +32,13 @@ header {
 small {
 	display: block;
 	width: 15em;
+}
+
+._solarDays_ {
+	height: 30%;
+	position: absolute;
+	width: 30%;
+
+	fill: $white;
+	font-size: 80%;
 }
