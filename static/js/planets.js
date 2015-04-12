@@ -46,11 +46,15 @@ $(function () {
 			this.collection.fetch({ remove: false });
 
 			this.infoTemplate = _.template(this.$('#planetInfo').html());
+			this.labelsTemplate = _.template(this.$('#labelsForSlider').html());
+
 			this.listenToOnce(this.collection, 'sync', this.render);
 		}, 
 
 		render: function () {
-			this.listenTo(this.collection, 'change', this.render);
+			// this.listenTo(this.collection, 'change', this.render);
+			var compiledLables = this.labelsTemplate({ planets: this.collection.toJSON() });
+			this.$('.dashboard--planet-slider').append(compiledLables);
 			this.travel();
 
 			return this;

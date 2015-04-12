@@ -402,6 +402,32 @@ th {
   -webkit-animation: 1s blink step-end infinite;
   -moz-animation: 1s blink step-end infinite; }
 
+@-webkit-keyframes shake {
+  0%, 100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); }
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0); }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0); } }
+@keyframes shake {
+  0%, 100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); }
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0); }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0); } }
+.dashboard--planet-slider [type="range"]::-webkit-slider-thumb {
+  -webkit-animation-name: shake;
+  animation-name: shake;
+  -webkit-animation-duration: infinite;
+  animation-duration: infinite; }
+
 @font-face {
   src: url("../fonts/Hermit-light.otf");
   font-family: "Hermit";
@@ -590,6 +616,20 @@ header {
 
 .dashboard--planet-name {
   text-transform: capitalize; }
+
+.dashboard--slider-labels {
+  list-style: none;
+  height: 3em;
+  overflow: hidden;
+  margin-top: 0;
+  padding-left: 12%; }
+
+.dashboard--slider-label {
+  display: inline-block;
+  float: left;
+  width: 12%;
+  transform: rotate(-20deg);
+  -webkit-transform: rotate(-20deg); }
 
 #astronaut {
   height: 13em;

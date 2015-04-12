@@ -262,7 +262,7 @@
 
 	<div class="dashboard">
 		<div class="dashboard--planet-slider">
-			<input id="planetSlider" type="range" name="planet-slider" value="1" min="0" max="9" step="1" data-slider="">
+			<input id="planetSlider" type="range" name="planet-slider" value="1" min="0" max="9" step="1">
 		</div>
 
 		<div class="dashboard--sun"></div>
@@ -275,11 +275,17 @@
 		<h2 class="dashboard--planet-name">
 			<%= planet.name %>
 			<span class="dashboard--blinking-cursor"></span>
-			<audio class="dashboard--audio" src="<%= planet.audio %>" mute controls loop><audio>
 		</h2>
 		<p><%= planet.description %></p>
 	</script>
-
+	<script type="text/template" id="labelsForSlider">
+		<ul class="dashboard--slider-labels">
+			<% _.each(planets, function(planet) { %>
+				<li class="dashboard--slider-label"><%= planet.name %></li>
+			<% });	%>
+		</ul>
+	</script>
+	<!-- 			<audio class="dashboard--audio" src="<%= planet.audio %>" mute controls loop><audio>-->
 	<!--le scripts--> 
 	<script type="text/js" src="../static/js/jquery.js"></script>
 	<script type="text/js" src="../static/js/underscore.js"></script>

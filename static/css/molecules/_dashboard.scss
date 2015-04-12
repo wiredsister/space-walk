@@ -77,6 +77,8 @@
 	cursor: -webkit-grab;
 	height: 7em;
 	width: 7em;
+
+	@extend %shake;
 }
 
 .dashboard--audio {
@@ -89,5 +91,21 @@
 
 .dashboard--blinking-cursor {
 	@extend %cursor;
+}
+
+.dashboard--slider-labels {
+	list-style: none;
+	height: 3em;
+	overflow: hidden;
+	margin-top: 0;
+	padding-left: 12%;
+}
+
+.dashboard--slider-label {
+	display: inline-block;
+	float: left;
+	width: 12%;
+	transform: rotate(-20deg);
+	-webkit-transform: rotate(-20deg);
 }
 
