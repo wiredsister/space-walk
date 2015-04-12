@@ -41,4 +41,51 @@ small {
 
 	fill: $white;
 	font-size: 80%;
+
+	.bar {
+		fill: fade-out($yellow, .4);
+	}
+
+	.x.axis text, .y.axis text{
+		fill: lighten($pink, 20%);
+		opacity: .7;
+	}
+	.x.label {
+		font-size: 1.2em;
+	}
+}
+
+.-mercury._solarDays_ .bar:nth-of-type(1) {
+	fill: $pink;
+}
+.-venus._solarDays_ .bar:nth-of-type(2) {
+	fill: $pink;
+}
+.-earth._solarDays_ .bar:nth-of-type(3) {
+	fill: $pink;
+}
+.-mars._solarDays_ .bar:nth-of-type(4) {
+	fill: $pink;
+}
+.-saturn._solarDays_ .bar:nth-of-type(5) {
+	fill: $pink;
+}
+.-jupiter._solarDays_ .bar:nth-of-type(6) {
+	fill: $pink;
+}
+.-uranus._solarDays_ .bar:nth-of-type(7) {
+	fill: $pink;
+}
+.-neptune._solarDays_ .bar:nth-of-type(8) {
+	fill: $pink;
+}
+
+#planet_stats {
+	position: absolute;
+	top: 30%;
+	right: 3em;
+	width: 20%;
+	& text {
+		display: block;
+	}
 }

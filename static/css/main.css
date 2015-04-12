@@ -468,6 +468,45 @@ small {
   width: 30%;
   fill: white;
   font-size: 80%; }
+  ._solarDays_ .bar {
+    fill: rgba(255, 255, 0, 0.6); }
+  ._solarDays_ .x.axis text, ._solarDays_ .y.axis text {
+    fill: #f6acbe;
+    opacity: .7; }
+  ._solarDays_ .x.label {
+    font-size: 1.2em; }
+
+.-mercury._solarDays_ .bar:nth-of-type(1) {
+  fill: #ed4f75; }
+
+.-venus._solarDays_ .bar:nth-of-type(2) {
+  fill: #ed4f75; }
+
+.-earth._solarDays_ .bar:nth-of-type(3) {
+  fill: #ed4f75; }
+
+.-mars._solarDays_ .bar:nth-of-type(4) {
+  fill: #ed4f75; }
+
+.-saturn._solarDays_ .bar:nth-of-type(5) {
+  fill: #ed4f75; }
+
+.-jupiter._solarDays_ .bar:nth-of-type(6) {
+  fill: #ed4f75; }
+
+.-uranus._solarDays_ .bar:nth-of-type(7) {
+  fill: #ed4f75; }
+
+.-neptune._solarDays_ .bar:nth-of-type(8) {
+  fill: #ed4f75; }
+
+#planet_stats {
+  position: absolute;
+  top: 30%;
+  right: 3em;
+  width: 20%; }
+  #planet_stats text {
+    display: block; }
 
 [class^="planet--"] {
   margin: 0 auto;

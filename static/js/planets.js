@@ -25,6 +25,38 @@ $(function () {
 	}
 
 	// D3 UTILS ================================================================
+	var chartHelper = function (chart_data) {
+		// TROLL CODE
+		var mass = chart_data.mass || "Not Available";
+		var mass_density = chart_data.mass_density || "Not Available";
+		var mean_solar_day = chart_data.mean_solar_day || "Not Available";
+		var flat = chart_data.flat || "Not Available";
+
+	    var g = d3.select("#planet_stats")
+		    .append("g");
+	    var y_spacing = 20,
+		x_pos = 30;
+	    g.append("text")
+		.text("Quick Planet Stats:")
+		.attr({x:5, y:y_spacing += 20});
+		g.append("text")
+		.text("================")
+		.attr({x:5, y:y_spacing += 20});
+	    g.append("text")
+		.text("Flattening: " + Number(flat).toFixed(2))
+		.attr({x:x_pos, y:y_spacing += 30});
+	    g.append("text")
+		.text("Mass: " + Number(mass).toFixed())
+		.attr({x:x_pos, y:y_spacing += 30});
+	    g.append("text")
+		.text("Mass Density: " + Number(mass_density).toFixed(2))
+		.attr({x:x_pos, y:y_spacing += 30});
+	    g.append("text")
+		.text("Mean Solar Day: " + Number(mean_solar_day).toFixed(2))
+		.attr({x:x_pos, y:y_spacing += 30});
+	};
+
+	// BACKBONE OBJS ================================================================
 	var Planet = Backbone.Model.extend({});
 
 	var SolarSystem = Backbone.Collection.extend({
@@ -34,8 +66,6 @@ $(function () {
 		currentPlanet: 0,
 
 		parse: function (response) {
-			_.extend(this, { rawJSONplanets: response.planets });
-
 			_.each(response.planets, function(value, key, list) { 
 				_.extend(response.planets[key], { 
 					name: _.keys(value).toString(),
@@ -53,6 +83,7 @@ $(function () {
 		}
 	});
 
+	// BACKBONE VIEWS ================================================================
 	var SolarView = Backbone.View.extend({
 		events: {
 			'change #planetSlider': 'planetSlider',
@@ -72,7 +103,6 @@ $(function () {
 		}, 
 
 		render: function () {
-			// this.listenTo(this.collection, 'change', this.render);
 			var compiledLables = this.labelsTemplate({ planets: this.collection.toJSON() });
 			this.$('.dashboard--planet-slider').append(compiledLables);
 			this.travel();
@@ -98,8 +128,20 @@ $(function () {
 
 		travel: function () {
 			this.backdrop();
+
 			var thisPlanet = this.collection.at(this.collection.currentPlanet);
 		    var planetData = thisPlanet.toJSON();
+		    var byName = planetData[planetData['name']];
+
+		    var chartData = {
+		    	mass: byName.MASS.MASS, 
+		    	mass_density: byName.MASS_DENSITY.MASS_DENSITY,
+		    	flat: byName.FLATTENING.FLATTENING,
+		    	mean_solar_day: byName.MEAN_SOLAR_DAY.MEAN_SOLAR_DAY
+		    }
+
+		    this.$('#planet_stats').empty();
+		    chartHelper(chartData);
 
 			var $summary = this.$('.dashboard--planet-summary');
 			$summary.empty();
@@ -112,22 +154,27 @@ $(function () {
 			var classesToRemove = _.rest(this.$('.planet').attr('class').split(' '));
 			_.each(classesToRemove, function(klass) {
 				this.$('.planet').removeClass(klass);
+				this.$('._solarDays_').removeClass(klass);
 			}, this);
 
 			this.$('.planet').addClass(this.collection.at(this.collection.currentPlanet).get('planetClass'));
+			this.$('._solarDays_').addClass(this.collection.at(this.collection.currentPlanet).get('planetClass'));
 		}
 
 	});
 
+	// BACKBONE CONSTRUCTORS ================================================================
 	var solarSystem = new SolarSystem();
 	var dashboard = new SolarView({
 		collection: solarSystem
 	});
 
+	// MISC ================================================================
 	$('#countdown').animate({
 		volume: 0
 	}, 5000);
 
+	// MOAR D3 ================================================================
 	(function solar_days () {
 		var o = new XMLHttpRequest();
 		o.open("GET", "planetsdata", false);
@@ -195,28 +242,5 @@ $(function () {
 		    return y.rangeBand();
 		});
 	})();
-
-	// function chart1 (flat, mass, mass_density, mean_solar_day) {
-	//     var g = d3.select("#planet_stats")
-	// 	    .style("border-style", "groove")
-	// 	    .append("g");
-	//     var y_spacing = 20,
-	// 	x_pos = 30;
-	//     g.append("text")
-	// 	.text("Quick Planet Stats")
-	// 	.attr({x:5, y:y_spacing += 20});
-	//     g.append("text")
-	// 	.text("Flattening: " + (+flat).toFixed(2))
-	// 	.attr({x:x_pos, y:y_spacing += 30});
-	//     g.append("text")
-	// 	.text("Mass: " + (+mass))
-	// 	.attr({x:x_pos, y:y_spacing += 30});
-	//     g.append("text")
-	// 	.text("Mass Density: " + (+mass_density).toFixed(2))
-	// 	.attr({x:x_pos, y:y_spacing += 30});
-	//     g.append("text")
-	// 	.text("Mean Solar Day: " + (+mean_solar_day).toFixed(2))
-	// 	.attr({x:x_pos, y:y_spacing += 30});
-	// }
 });
 
