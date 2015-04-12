@@ -559,6 +559,9 @@ header {
 .dashboard--audio {
   float: right; }
 
+.dashboard--planet-name {
+  text-transform: capitalize; }
+
 #astronaut {
   height: 13em;
   width: 15em;
