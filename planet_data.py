@@ -1,5 +1,6 @@
 from pdb import set_trace
-from html.parser import HTMLParser
+# from html.parser import HTMLParser
+from HTMLParser import HTMLParser
 import json
 import requests
 
