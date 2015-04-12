@@ -87,3 +87,7 @@
 	text-transform: capitalize;
 }
 
+.dashboard--blinking-cursor {
+	@extend %cursor;
+}
+

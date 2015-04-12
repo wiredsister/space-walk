@@ -382,6 +382,26 @@ th {
     -webkit-transform: rotate(0deg); }
   to {
     -webkit-transform: rotate(360deg); } }
+@-webkit-keyframes blink {
+  from, to {
+    border-color: transparent; }
+  50% {
+    border-color: white; } }
+@keyframes blink {
+  from, to {
+    border-color: transparent; }
+  50% {
+    border-color: white; } }
+.dashboard--blinking-cursor {
+  display: inline-block;
+  width: 25px;
+  height: 3px;
+  margin-left: -5px;
+  vertical-align: bottom;
+  border-bottom: 3px solid white;
+  -webkit-animation: 1s blink step-end infinite;
+  -moz-animation: 1s blink step-end infinite; }
+
 @font-face {
   src: url("../fonts/Hermit-light.otf");
   font-family: "Hermit";
@@ -421,7 +441,8 @@ header {
   bottom: 0;
   right: 0;
   margin: auto;
-  display: none; }
+  opacity: 0;
+  transition: opacity .3s linear; }
 
 .planet {
   height: 50em; }
@@ -432,7 +453,7 @@ header {
   -webkit-background-size: contain;
   -moz-background-size: contain; }
   .-mercury [class$="--mercury"] {
-    display: block; }
+    opacity: 1; }
 
 [class$="--venus"] {
   background: url("../images/venus.gif") center center no-repeat;
@@ -440,7 +461,7 @@ header {
   -webkit-background-size: contain;
   -moz-background-size: contain; }
   .-venus [class$="--venus"] {
-    display: block; }
+    opacity: 1; }
 
 [class$="--earth"] {
   background: url("../images/earth.gif") center center no-repeat;
@@ -448,7 +469,7 @@ header {
   -webkit-background-size: contain;
   -moz-background-size: contain; }
   .-earth [class$="--earth"] {
-    display: block; }
+    opacity: 1; }
 
 [class$="--mars"] {
   background: url("../images/mars.gif") center center no-repeat;
@@ -456,7 +477,7 @@ header {
   -webkit-background-size: contain;
   -moz-background-size: contain; }
   .-mars [class$="--mars"] {
-    display: block; }
+    opacity: 1; }
 
 [class$="--saturn"] {
   background: url("../images/saturn.gif") center center no-repeat;
@@ -464,7 +485,7 @@ header {
   -webkit-background-size: contain;
   -moz-background-size: contain; }
   .-saturn [class$="--saturn"] {
-    display: block; }
+    opacity: 1; }
 
 [class$="--jupiter"] {
   background: url("../images/jupiter.gif") center center no-repeat;
@@ -472,7 +493,7 @@ header {
   -webkit-background-size: contain;
   -moz-background-size: contain; }
   .-jupiter [class$="--jupiter"] {
-    display: block; }
+    opacity: 1; }
 
 [class$="--uranus"] {
   background: url("../images/uranus.gif") center center no-repeat;
@@ -480,7 +501,7 @@ header {
   -webkit-background-size: contain;
   -moz-background-size: contain; }
   .-uranus [class$="--uranus"] {
-    display: block; }
+    opacity: 1; }
 
 [class$="--neptune"] {
   background: url("../images/neptune.gif") center center no-repeat;
@@ -488,7 +509,7 @@ header {
   -webkit-background-size: contain;
   -moz-background-size: contain; }
   .-neptune [class$="--neptune"] {
-    display: block; }
+    opacity: 1; }
 
 .dashboard {
   position: absolute;

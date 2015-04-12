@@ -24,7 +24,8 @@ $planet: (
 	margin: auto;
 	@extend	%planetary-shadow;
 	@extend %rotate;
-	display: none;
+	opacity: 0;
+	transition: opacity .3s linear;
 }
 
 .planet {
@@ -37,41 +38,41 @@ $planet: (
 
 [class$="--mercury"] {
 	@include background(#{map-get($planet, mercury)});
-	.-mercury & { display: block; }
+	.-mercury & { opacity: 1; }
 }
 
 [class$="--venus"] {
 	@include background(#{map-get($planet, venus)});
-	.-venus & { display: block; }
+	.-venus & { opacity: 1; }
 }	
 
 [class$="--earth"] {
 	@include background(#{map-get($planet, earth)});
-	.-earth & { display: block; }
+	.-earth & { opacity: 1; }
 }	
 
 [class$="--mars"] {
 	@include background(#{map-get($planet, mars)});
-	.-mars & { display: block; }
+	.-mars & { opacity: 1; }
 }
 
 [class$="--saturn"] {
 	@include background(#{map-get($planet, saturn)});
-	.-saturn & { display: block; }	
+	.-saturn & { opacity: 1; }	
 }
 
 [class$="--jupiter"] {
 	@include background(#{map-get($planet, jupiter)});
-	.-jupiter & { display: block; }	
+	.-jupiter & { opacity: 1; }	
 }
 
 [class$="--uranus"] {
 	@include background(#{map-get($planet, uranus)});
-	.-uranus & { display: block; }	
+	.-uranus & { opacity: 1; }	
 }	
 
 [class$="--neptune"] {
 	@include background(#{map-get($planet, neptune)});
-	.-neptune & { display: block; }
+	.-neptune & { opacity: 1; }
 }	
 

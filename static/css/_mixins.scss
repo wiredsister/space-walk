@@ -61,3 +61,25 @@
 	}	
 }
 
+@-webkit-keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: $white }
+}
+
+@keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: $white }
+}
+
+%cursor {
+	display: inline-block;
+	width: 25px;
+	height: 3px;
+	margin-left: -5px;
+	vertical-align: bottom;
+    border-bottom: 3px solid $white;
+    -webkit-animation: 1s blink step-end infinite;
+    -moz-animation: 1s blink step-end infinite;	
+}
+
+
