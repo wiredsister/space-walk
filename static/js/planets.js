@@ -4,7 +4,6 @@ $(function () {
 	var Planet = Backbone.Model.extend({
 		defaults: {
 		    description: "Bitters put a bird on it banh mi, art party whatever skateboard American Apparel yr vinyl Carles twee listicle. Biodiesel ugh chillwave, migas cornhole four dollar toast PBR. Lo-fi ethical migas mlkshk jean shorts McSweeney's pork belly, Marfa next level lumbersexual 8-bit beard food truck. Hoodie readymade biodiesel cornhole Helvetica drinking vinegar. Whatever 90's flexitarian Blue Bottle, DIY health goth PBR kogi master cleanse farm-to-table fixie locavore cliche four loko. Blog Marfa quinoa Odd Future, Kickstarter church-key Pinterest hoodie bicycle rights Tumblr pork belly gluten-free cold-pressed keytar. Stumptown sriracha next level readymade, lo-fi street art authentic skateboard bespoke slow-carb synth kale chips vinyl DIY single-origin coffee.",
-		    
 			name: "Planet Name", 
 			audio: "/static/audio/sounds.m4r"
 		},
@@ -58,7 +57,8 @@ $(function () {
 		}, 
 
 		planetSlider: function (event) {
-			var nextPlanet = event.currentTarget.valueAsNumber - 1;
+			var nextPlanet = event.currentTarget.valueAsNumber - 1; //non zero indexed list
+			if (nextPlanet < 0 || nextPlanet > 7) { return; }
 			_.extend(this.collection, { currentPlanet: nextPlanet });
 
 			this.travel();
@@ -67,8 +67,7 @@ $(function () {
 		travel: function () {
 			this.backdrop();
 
-		    var planetData = this.collection.at(
-			this.collection.currentPlanet).toJSON();
+		    var planetData = this.collection.at(this.collection.currentPlanet).toJSON();
 			var $summary = this.$('.dashboard--planet-summary');
 			$summary.empty();
 			var compiled = this.infoTemplate({ planet: planetData });
@@ -77,12 +76,12 @@ $(function () {
 		}, 
 
 		backdrop: function () {
-			this.$('.planet').removeClass(function (index, css) {
-				return css[1];
-			});
+			var classesToRemove = _.rest(this.$('.planet').attr('class').split(' '));
+			_.each(classesToRemove, function(klass) {
+				this.$('.planet').removeClass(klass);
+			}, this);
 
-			var newPlanet = this.collection.at(this.collection.currentPlanet).get('planetClass');
-			this.$('.planet').addClass(newPlanet);
+			this.$('.planet').addClass(this.collection.at(this.collection.currentPlanet).get('planetClass'));
 		}
 
 	});
