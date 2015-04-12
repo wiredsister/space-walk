@@ -456,6 +456,10 @@ header {
   bottom: 0;
   -webkit-filter: blur(1px); }
 
+small {
+  display: block;
+  width: 15em; }
+
 [class^="planet--"] {
   margin: 0 auto;
   border-radius: 50%;
@@ -612,7 +616,9 @@ header {
   width: 7em; }
 
 .dashboard--audio {
-  float: right; }
+  position: absolute;
+  top: .5em;
+  left: .5em; }
 
 .dashboard--planet-name {
   text-transform: capitalize; }
@@ -629,13 +635,14 @@ header {
   float: left;
   width: 12%;
   transform: rotate(-20deg);
-  -webkit-transform: rotate(-20deg); }
+  -webkit-transform: rotate(-20deg);
+  text-transform: capitalize; }
 
 #astronaut {
-  height: 13em;
+  height: 20%;
   width: 15em;
   position: absolute;
-  top: 3em;
+  top: 5%;
   left: 0;
   right: 0;
   z-index: 999;

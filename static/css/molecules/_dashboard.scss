@@ -82,7 +82,9 @@
 }
 
 .dashboard--audio {
-  float: right;
+	position: absolute;
+	top: .5em;
+	left: .5em;
 }
 
 .dashboard--planet-name {
@@ -107,5 +109,6 @@
 	width: 12%;
 	transform: rotate(-20deg);
 	-webkit-transform: rotate(-20deg);
+	text-transform: capitalize;
 }
 

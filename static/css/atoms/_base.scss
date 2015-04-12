@@ -26,3 +26,8 @@ header {
 	-webkit-filter: blur(1px);
 	@extend %planetary-shadow;
 }
+
+small {
+	display: block;
+	width: 15em;
+}

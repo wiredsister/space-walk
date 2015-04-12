@@ -17,10 +17,15 @@
 	<link rel="stylesheet" type="text/css" href="../static/css/main.css"/>
 </head>
 <body class="_planetApp_">
+	<audio id="countdown" src="http://www.nasa.gov/mp3/640392main_STS-26_Liftoff.mp3" preload autoplay></audio>
+	<audio id="launchSound" src="../static/audio/launch.m4r" loop></audio>
+
 	<svg id="pie_chart" height="400" width="400"></svg>
 	<div class="background"></div>
 	<header>
-		<h1>Planet Walk</h1>
+		<h1>Planet Walk!</h1>
+		<small>To get started, drag the Rocket Ship to another planet!</small>
+		<audio id="spaceClicks" class="dashboard--audio" src="../static/audio/sounds.m4r" controls  loop volume="0"></audio>
 	</header>
 
 	<div class="astronaut">	
@@ -277,7 +282,10 @@
 			<span class="dashboard--blinking-cursor"></span>
 		</h2>
 		<p><%= planet.description %></p>
+		<h3>Fun facts:</h3>
+		<p><%= planet.funFacts %></p>
 	</script>
+
 	<script type="text/template" id="labelsForSlider">
 		<ul class="dashboard--slider-labels">
 			<% _.each(planets, function(planet) { %>
@@ -285,7 +293,6 @@
 			<% });	%>
 		</ul>
 	</script>
-	<!-- 			<audio class="dashboard--audio" src="<%= planet.audio %>" mute controls loop><audio>-->
 	<!--le scripts--> 
 	<script type="text/js" src="../static/js/jquery.js"></script>
 	<script type="text/js" src="../static/js/underscore.js"></script>
